@@ -1,6 +1,341 @@
 /******* Change Box Model ***************/
-*,
-*:before,
-*:after {
+/* General Reset */
+body, h1, h2, h3, p, ul, li, a, button {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
+
+/* Body Styles */
+body {
+  font-family: Arial, sans-serif;
+  background: url('/images/site/small_check.jpg') repeat;
+  color: #4d4747;
+  line-height: 1.6;
+  padding: 20px;
+  background-color: #000; /* Fallback color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  position: relative;
+  z-index: 0;
+}
+
+/* Main Container */
+.container {
+  background: #fff;
+  width: 90%;  /* Adjust to 90% of the viewport width */
+  max-width: 1200px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  border: 6px solid rgb(50, 186, 216);  /* Cyan border */
+  position: relative; /* Needed for positioning the "My Account" link */
+}
+
+/* Header Styling */
+.header {
+  display: flex;
+  justify-content: space-between; /* Space between site name and account links */
+  align-items: center; /* Vertically center the items */
+  background-color: #ffffff; /* Dark background */
+  padding: 10px 20px; /* Padding for the header */
+  color: white;
+}
+
+.siteName {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.siteName a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  font-size: 28px;
+}
+
+.siteName a:hover {
+  text-decoration: underline;
+}
+
+#tools {
+  display: flex;
+  gap: 15px; /* Space between the account-related links */
+}
+
+#tools a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 5px 10px;
+  border-radius: 5px; /* Rounded corners for buttons */
+  transition: background-color 0.3s ease;
+}
+
+#tools a:hover {
+  background-color: #00509e; /* Darker shade for hover effect */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column; /* Stack elements vertically on small screens */
+    align-items: flex-start; /* Align items to the left */
+    padding: 10px; /* Adjust padding for mobile */
+  }
+
+  .siteName {
+    margin-bottom: 10px; /* Space below the site name */
+  }
+
+  #tools {
+    flex-direction: column; /* Stack account links vertically */
+    gap: 10px; /* Adjust space between links */
+  }
+}
+
+
+/* Position "My Account" in the top-right corner of the container */
+.my-account {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 16px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.my-account:hover {
+  text-decoration: underline;
+}
+
+/* Navigation */
+nav {
+  width: 95%;  /* Make navigation 95% of the container's width */
+  background-color: #000;  /* Black background */
+  padding: 0;
+  margin: 0;
+  color: white;
+  text-align: center;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-around;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+nav li {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  padding: 10px 15px;
+  display: block;
+  text-align: center;
+}
+
+nav a:hover {
+  background-color: #444;  /* Hover effect */
+}
+
+/* Welcome Section */
+.welcome {
+  margin-bottom: 20px;
+}
+
+.welcome h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.featured-vehicle {
+  position: relative; /* Needed for .vehicle-info's absolute positioning */
+  display: flex; /* Ensures a horizontal layout */
+  align-items: center; /* Vertically align the car image and .vehicle-info */
+  justify-content: flex-start; /* Adjust spacing as needed */
+  gap: 20px; 
+  background-color: white;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.featured-vehicle img {
+  width: 600px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.vehicle-info {
+  max-width: 400px;
+  background-color: rgba(255, 255, 255, 0.65); /* Slightly more opaque background */
+  padding: 20px;
+  border: 2px solid rgb(50, 186, 216); /* Border color remains the same */
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  text-align: left; /* Align text to the left */
+  position: absolute; /* Positioning required for floating */
+  top: 35%; /* Move higher relative to the container */
+  left: 10%; /* Adjust as needed for horizontal alignment */
+  transform: translateY(-50%); /* Center vertically relative to its own height */
+  z-index: 1; /* Ensure it floats above the image */
+}
+
+.vehicle-info h3 {
+  font-size: 24px;
+  color: rgb(50, 186, 216);
+  margin-bottom: 10px;
+}
+
+.vehicle-info p {
+  font-size: 16px;
+  color: rgb(50, 186, 216);
+  margin-bottom: 20px;
+}
+
+.vehicle-info .btn-primary {
+  padding: 10px 15px;
+  font-size: 16px;
+  background-color: rgb(50, 186, 216);
+  color: rgb(0, 0, 0);
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.vehicle-info .btn-primary:hover {
+  background-color: rgb(50, 186, 216);
+}
+.vehicle-detail {
+  background-color: white;
+  padding: 20px;
+  border: #007BFF;
+
+}
+
+/* Reviews and Upgrades Container */
+.reviews-upgrades {
+  display: flex;
+  justify-content: space-between; /* Distribute items evenly */
+  align-items: flex-start; /* Align items to the top */
+  gap: 20px; /* Space between the two sections */
+  margin-top: 40px; /* Add some space above */
+  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+}
+
+/* Reviews Section */
+.reviews {
+  flex: 1; /* Take equal space */
+  order: 2; /* Make the reviews section appear second */
+  min-width: 300px; /* Ensure it doesn't shrink too small */
+  padding: 20px;
+  background-color: #f9f9f9; /* Light background for clarity */
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.reviews h3 {
+  font-size: 24px;
+  color: rgb(0, 0, 0);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.reviews ul {
+  list-style-type: disc; /* Use 'disc' for standard bullets */
+  padding-left: 20px; /* Add left padding for proper indentation */
+  margin: 0;
+}
+
+.reviews li {
+  font-size: 21px;
+  color: rgb(0, 0, 0);
+  margin-bottom: 12px;
+  text-align:left
+}
+
+/* Upgrades Section */
+.upgrades {
+  flex: 1; /* Take equal space */
+  order: 1; /* Ensure upgrades section appears first */
+  min-width: 300px;
+  padding: 20px;
+  background-color: #f9f9f9; /* Light background for clarity */
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
+  display: flex; /* Enable flexbox layout */
+  flex-wrap: wrap; /* Allow child items to wrap */
+  justify-content: space-around; /* Space items evenly */
+  gap: 20px; /* Add space between wrapped items */
+}
+
+
+.upgrades h3 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.upgrade-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Flexible grid */
+  gap: 20px;
+  justify-items: center;
+}
+
+.upgrade-item {
+  background-color: rgb(50, 186, 216); 
+  padding: 15px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.upgrade-item img {
+  width: 65px;
+  height: auto;
+  margin-bottom: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.upgrade-item .text {
+  font-size: 12px;
+  color: #333;
+  padding: 0px;
+  margin-top: 0px;
+}
+
+.upgrade-item a {
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: transparent; 
+  text-decoration: none;
+}
+
+.upgrade-item a:hover {
+  color: rgb(50, 186, 216);
+}
+/* General Styling */
+
+
+main.classification-container {
+  width: 100%;
+  max-width: 400px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
