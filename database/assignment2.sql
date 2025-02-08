@@ -24,12 +24,15 @@ WHERE account_email = 'tony@starkent.com';
 DELETE FROM public.account
 WHERE account_email = 'tony@starkent.com';
 
--- Step 5.4 - Modify the "GM Hummer" record to read "a huge interior" rather than "small interiors" using a single query.
+-- Step 5.4 - Modify the "GM Hummer" record to read "a huge interior" rather than 
+-- "small interiors" using a single query.
 UPDATE public.inventory
 SET inv_description = REPLACE(inv_description, 'the small interiors', 'a huge interior')
 WHERE inv_model = 'Hummer';
 
--- Step 5.5 - Use an inner join to select the make and model fields from the inventory table and the classification name field from the classification table for inventory items that belong to the "Sport" category.
+-- Step 5.5 - Use an inner join to select the make and model fields from the 
+-- inventory table and the classification name field from the classification 
+-- table for inventory items that belong to the "Sport" category.
 SELECT 
     inventory.inv_make, 
     inventory.inv_model, 
@@ -43,7 +46,9 @@ ON
 WHERE 
     classification.classification_name = 'Sport';
 
--- Step 5.6 - Update all records in the inventory table to add "/vehicles" to the middle of the file path in the inv_image and inv_thumbnail columns using a single query.
+-- Step 5.6 - Update all records in the inventory table to add "/vehicles" to 
+-- the middle of the file path in the inv_image and inv_thumbnail columns 
+-- using a single query.
 UPDATE public.inventory
 SET 
     inv_image = REPLACE(inv_image, '/images/', '/images/vehicles/'),
